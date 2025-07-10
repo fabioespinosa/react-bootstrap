@@ -2,7 +2,9 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 exports.__esModule = true;
-exports.ThemeProvider = exports.ModalTitle = exports.ModalHeader = exports.ModalFooter = exports.ModalDialog = exports.ModalBody = exports.Modal = exports.Fade = exports.CloseButton = void 0;
+exports.ModalTitle = exports.ModalHeader = exports.ModalFooter = exports.ModalDialog = exports.ModalBody = exports.Modal = exports.Fade = exports.CloseButton = exports.BootstrapModalManager = void 0;
+var _BootstrapModalManager = _interopRequireDefault(require("./BootstrapModalManager"));
+exports.BootstrapModalManager = _BootstrapModalManager.default;
 var _CloseButton = _interopRequireDefault(require("./CloseButton"));
 exports.CloseButton = _CloseButton.default;
 var _Fade = _interopRequireDefault(require("./Fade"));
@@ -19,5 +21,3 @@ var _ModalHeader = _interopRequireDefault(require("./ModalHeader"));
 exports.ModalHeader = _ModalHeader.default;
 var _ModalTitle = _interopRequireDefault(require("./ModalTitle"));
 exports.ModalTitle = _ModalTitle.default;
-var _ThemeProvider = _interopRequireDefault(require("./ThemeProvider"));
-exports.ThemeProvider = _ThemeProvider.default;

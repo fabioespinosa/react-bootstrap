@@ -1,3 +1,5 @@
+export { default as BootstrapModalManager } from './BootstrapModalManager';
+
 export { default as CloseButton } from './CloseButton';
 export type { CloseButtonProps } from './CloseButton';
 
@@ -20,6 +22,3 @@ export type { ModalHeaderProps } from './ModalHeader';
 
 export { default as ModalTitle } from './ModalTitle';
 export type { ModalTitleProps } from './ModalTitle';
-
-export { default as ThemeProvider } from './ThemeProvider';
-export type { ThemeProviderProps } from './ThemeProvider';
