@@ -47,7 +47,7 @@ describe('Fade', () => {
 
     const node = screen.getByTestId('test');
     expect(node.classList).toContain('fade');
-    expect(node.classList).toContain('show');
+    expect(node.classList).toContain('in');
   });
 
   it('Should default to hidden', () => {
@@ -76,7 +76,7 @@ describe('Fade', () => {
         onEntering={() => {
           const node = screen.getByTestId('fade-component');
           expect(node.classList).toContain('fade');
-          expect(node.classList).toContain('show');
+          expect(node.classList).toContain('in');
           onEnteringSpy();
         }}
       >
@@ -94,14 +94,14 @@ describe('Fade', () => {
 
     const node = screen.getByTestId('fade-component');
     expect(node.classList).toContain('fade');
-    expect(node.classList).toContain('show');
+    expect(node.classList).toContain('in');
 
     rerender(
       <Component
         in={false}
         onExiting={() => {
           expect(node.classList).toContain('fade');
-          expect(node.classList).not.toContain('show');
+          expect(node.classList).not.toContain('in');
           onEnteringSpy();
         }}
       >

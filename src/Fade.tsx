@@ -55,8 +55,8 @@ export interface FadeProps extends TransitionCallbacks {
 }
 
 const fadeStyles = {
-  [ENTERING]: 'show',
-  [ENTERED]: 'show',
+  [ENTERING]: 'in',
+  [ENTERED]: 'in',
 };
 
 const Fade = React.forwardRef<Transition<any>, FadeProps>(

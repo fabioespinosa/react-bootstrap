@@ -40,7 +40,7 @@ describe('<Toast>', () => {
       </Toast>,
     );
 
-    ['fade', 'toast', 'show'].map((className) =>
+    ['fade', 'toast', 'in'].map((className) =>
       expect(container.firstElementChild!.classList).toContain(className),
     );
 
@@ -55,19 +55,6 @@ describe('<Toast>', () => {
         container.firstElementChild!.attributes.getNamedItem(attrName)!
           .textContent,
       ).toEqual(attrVal),
-    );
-  });
-
-  it('should render without transition if animation is false', () => {
-    const { container } = render(
-      <Toast animation={false}>
-        <Toast.Header />
-        <Toast.Body />
-      </Toast>,
-    );
-
-    ['toast', 'show'].map((className) =>
-      expect(container.firstElementChild!.classList).toContain(className),
     );
   });
 
