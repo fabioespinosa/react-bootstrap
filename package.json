@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap",
-  "version": "0.33.2",
+  "version": "0.33.3",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
@@ -115,18 +115,15 @@
     "webpack": "^4.35.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.4.0",
+    "@babel/runtime-corejs3": "^7.28.0",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.2.0",
     "invariant": "^2.2.4",
-    "keycode": "^2.2.0",
     "prop-types": "^15.6.1",
     "prop-types-extra": "^1.0.1",
     "react-overlays": "^5.2.1",
     "react-prop-types": "^0.4.0",
-    "react-transition-group": "^2.0.0",
-    "uncontrollable": "^7.0.2",
-    "warning": "^3.0.0"
+    "react-transition-group": "^4.4.5"
   },
   "release-script": {
     "bowerRepo": "git@github.com:react-bootstrap/react-bootstrap-bower.git"
