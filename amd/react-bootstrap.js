@@ -4612,7 +4612,7 @@ var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_r
     children = _ref.children,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
   return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
-    ref: ref
+    nodeRef: ref
   }, props, {
     __self: Fade_this,
     __source: {
