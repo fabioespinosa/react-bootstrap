@@ -116,7 +116,7 @@
     "invariant": "^2.2.4",
     "prop-types": "^15.6.1",
     "prop-types-extra": "^1.0.1",
-    "react-overlays": "^5.2.1",
+    "react-overlays": "^0.9.3",
     "react-prop-types": "^0.4.0",
     "react-transition-group": "^4.4.5"
   },
