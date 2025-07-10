@@ -3959,7 +3959,7 @@ __webpack_require__.d(__webpack_exports__, "ModalDialog", function() { return /*
 __webpack_require__.d(__webpack_exports__, "ModalFooter", function() { return /* reexport */ src_ModalFooter; });
 __webpack_require__.d(__webpack_exports__, "ModalHeader", function() { return /* reexport */ src_ModalHeader; });
 __webpack_require__.d(__webpack_exports__, "ModalTitle", function() { return /* reexport */ src_ModalTitle; });
-__webpack_require__.d(__webpack_exports__, "utils", function() { return /* reexport */ src_utils_namespaceObject; });
+__webpack_require__.d(__webpack_exports__, "utils", function() { return /* reexport */ utils_namespaceObject; });
 
 // NAMESPACE OBJECT: ./src/utils/bootstrapUtils.js
 var bootstrapUtils_namespaceObject = {};
@@ -3975,11 +3975,11 @@ __webpack_require__.d(bootstrapUtils_namespaceObject, "addStyle", function() { r
 __webpack_require__.d(bootstrapUtils_namespaceObject, "_curry", function() { return _curry; });
 
 // NAMESPACE OBJECT: ./src/utils/index.js
-var src_utils_namespaceObject = {};
-__webpack_require__.r(src_utils_namespaceObject);
-__webpack_require__.d(src_utils_namespaceObject, "bootstrapUtils", function() { return bootstrapUtils_namespaceObject; });
-__webpack_require__.d(src_utils_namespaceObject, "createChainedFunction", function() { return utils_createChainedFunction; });
-__webpack_require__.d(src_utils_namespaceObject, "ValidComponentChildren", function() { return ValidComponentChildren; });
+var utils_namespaceObject = {};
+__webpack_require__.r(utils_namespaceObject);
+__webpack_require__.d(utils_namespaceObject, "bootstrapUtils", function() { return bootstrapUtils_namespaceObject; });
+__webpack_require__.d(utils_namespaceObject, "createChainedFunction", function() { return utils_createChainedFunction; });
+__webpack_require__.d(utils_namespaceObject, "ValidComponentChildren", function() { return ValidComponentChildren; });
 
 // EXTERNAL MODULE: ./node_modules/core-js-pure/features/object/create.js
 var create = __webpack_require__(74);
@@ -4106,6 +4106,10 @@ function _objectWithoutPropertiesLoose(r, e) {
   }
   return t;
 }
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(4);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function objectWithoutPropertiesLoose_objectWithoutPropertiesLoose(r, e) {
@@ -4535,179 +4539,113 @@ Transition_Transition.ENTERING = ENTERING;
 Transition_Transition.ENTERED = ENTERED;
 Transition_Transition.EXITING = EXITING;
 /* harmony default export */ var esm_Transition = (Transition_Transition);
-// CONCATENATED MODULE: ./node_modules/@restart/ui/esm/utils.js
-
-function isEscKey(e) {
-  return e.code === 'Escape' || e.keyCode === 27;
-}
-function getReactVersion() {
-  const parts = external_root_React_commonjs2_react_commonjs_react_amd_react_["version"].split('.');
-  return {
-    major: +parts[0],
-    minor: +parts[1],
-    patch: +parts[2]
-  };
-}
-function getChildRef(element) {
-  if (!element || typeof element === 'function') {
-    return null;
-  }
-  const {
-    major
-  } = getReactVersion();
-  const childRef = major >= 19 ? element.props.ref : element.ref;
-  return childRef;
-}
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(4);
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-
-// CONCATENATED MODULE: ./src/TransitionWrapper.js
-
-
-var _excluded = ["onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "addEndListener", "children", "childRef"];
-var TransitionWrapper_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/TransitionWrapper.js",
-  TransitionWrapper_this = undefined;
-
-
-
-// Simple ref merging utility
-function mergeRefs(refA, refB) {
-  var a = !refA || typeof refA === 'function' ? refA : function (value) {
-    refA.current = value;
-  };
-  var b = !refB || typeof refB === 'function' ? refB : function (value) {
-    refB.current = value;
-  };
-  return function (value) {
-    if (a) a(value);
-    if (b) b(value);
-  };
-}
-
-// Normalizes Transition callbacks when nodeRef is used.
-var TransitionWrapper = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.forwardRef(function (_ref, ref) {
-  var onEnter = _ref.onEnter,
-    onEntering = _ref.onEntering,
-    onEntered = _ref.onEntered,
-    onExit = _ref.onExit,
-    onExiting = _ref.onExiting,
-    onExited = _ref.onExited,
-    addEndListener = _ref.addEndListener,
-    children = _ref.children,
-    childRef = _ref.childRef,
-    props = _objectWithoutPropertiesLoose(_ref, _excluded);
-  var nodeRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useRef"])(null);
-  var mergedRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useMemo"])(function () {
-    return mergeRefs(nodeRef, childRef);
-  }, [childRef]);
-  var normalize = function normalize(callback) {
-    return function (param) {
-      if (callback && nodeRef.current) {
-        callback(nodeRef.current, param);
-      }
-    };
-  };
-  var handleEnter = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onEnter), [onEnter]);
-  var handleEntering = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onEntering), [onEntering]);
-  var handleEntered = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onEntered), [onEntered]);
-  var handleExit = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onExit), [onExit]);
-  var handleExiting = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onExiting), [onExiting]);
-  var handleExited = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(normalize(onExited), [onExited]);
-  // const handleAddEndListener = useCallback(normalize(addEndListener), [
-  //   addEndListener
-  // ]);
-
-  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
-    ref: ref
-  }, props, {
-    onEnter: handleEnter,
-    onEntered: handleEntered,
-    onEntering: handleEntering,
-    onExit: handleExit,
-    onExited: handleExited,
-    onExiting: handleExiting
-    // addEndListener={handleAddEndListener}
-    ,
-    nodeRef: nodeRef,
-    __self: TransitionWrapper_this,
-    __source: {
-      fileName: TransitionWrapper_jsxFileName,
-      lineNumber: 62,
-      columnNumber: 7
-    }
-  }), typeof children === 'function' ? function (status, innerProps) {
-    return (
-      // TODO: Types for RTG missing innerProps, so need to cast.
-      children(status, _extends({}, innerProps, {
-        ref: mergedRef
-      }))
-    );
-  } : /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, {
-    ref: mergedRef
-  }));
-});
-TransitionWrapper.displayName = 'TransitionWrapper';
-/* harmony default export */ var src_TransitionWrapper = (TransitionWrapper);
 // CONCATENATED MODULE: ./src/Fade.js
 
 
-var Fade_excluded = ["className", "children", "transitionClasses", "onEnter"];
+
+var _excluded = ["className", "children"];
 var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js",
-  _fadeStyles,
-  Fade_this = undefined;
+  _fadeStyles;
 
 
 
 
-// import transitionEndListener from './transitionEndListener';
-
-
-// reading a dimension prop will cause the browser to recalculate,
-// which will let our animations work
-function triggerBrowserReflow(node) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  node.offsetHeight;
-}
-var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'show', _fadeStyles[ENTERED] = 'show', _fadeStyles);
-var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_["forwardRef"](function (_ref, ref) {
-  var className = _ref.className,
-    children = _ref.children,
-    _ref$transitionClasse = _ref.transitionClasses,
-    transitionClasses = _ref$transitionClasse === void 0 ? {} : _ref$transitionClasse,
-    onEnter = _ref.onEnter,
-    rest = _objectWithoutPropertiesLoose(_ref, Fade_excluded);
-  var props = _extends({
-    "in": false,
-    timeout: 300,
-    mountOnEnter: false,
-    unmountOnExit: false,
-    appear: false
-  }, rest);
-  var handleEnter = external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"](function (node, isAppearing) {
-    triggerBrowserReflow(node);
-    onEnter == null || onEnter(node, isAppearing);
-  }, [onEnter]);
-  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_["createElement"](src_TransitionWrapper, _extends({
-    ref: ref
-    // addEndListener={transitionEndListener}
-  }, props, {
-    onEnter: handleEnter,
-    childRef: getChildRef(children),
-    __self: Fade_this,
-    __source: {
-      fileName: Fade_jsxFileName,
-      lineNumber: 40,
-      columnNumber: 7
-    }
-  }), function (status, innerProps) {
-    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_["cloneElement"](children, _extends({}, innerProps, {
-      className: classnames_default()('fade', className, children.props.className, fadeStyles[status], transitionClasses[status])
+var Fade_propTypes = {
+  /**
+   * Show the component; triggers the fade in or fade out animation
+   */
+  "in": prop_types_default.a.bool,
+  /**
+   * Wait until the first "enter" transition to mount the component (add it to the DOM)
+   */
+  mountOnEnter: prop_types_default.a.bool,
+  /**
+   * Unmount the component (remove it from the DOM) when it is faded out
+   */
+  unmountOnExit: prop_types_default.a.bool,
+  /**
+   * Run the fade in animation when the component mounts, if it is initially
+   * shown
+   */
+  appear: prop_types_default.a.bool,
+  /**
+   * Duration of the fade animation in milliseconds, to ensure that finishing
+   * callbacks are fired even if the original browser transition end events are
+   * canceled
+   */
+  timeout: prop_types_default.a.number,
+  /**
+   * Callback fired before the component fades in
+   */
+  onEnter: prop_types_default.a.func,
+  /**
+   * Callback fired after the component starts to fade in
+   */
+  onEntering: prop_types_default.a.func,
+  /**
+   * Callback fired after the has component faded in
+   */
+  onEntered: prop_types_default.a.func,
+  /**
+   * Callback fired before the component fades out
+   */
+  onExit: prop_types_default.a.func,
+  /**
+   * Callback fired after the component starts to fade out
+   */
+  onExiting: prop_types_default.a.func,
+  /**
+   * Callback fired after the component has faded out
+   */
+  onExited: prop_types_default.a.func
+};
+var Fade_defaultProps = {
+  "in": false,
+  timeout: 300,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false
+};
+var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
+var Fade_Fade = /*#__PURE__*/function (_React$Component) {
+  function Fade() {
+    return _React$Component.apply(this, arguments) || this;
+  }
+  _inheritsLoose(Fade, _React$Component);
+  var _proto = Fade.prototype;
+  _proto.render = function render() {
+    var nodeRef = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createRef(null);
+    var _this$props = this.props,
+      className = _this$props.className,
+      children = _this$props.children,
+      props = _objectWithoutPropertiesLoose(_this$props, _excluded);
+    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({}, props, {
+      nodeRef: nodeRef,
+      __self: this,
+      __source: {
+        fileName: Fade_jsxFileName,
+        lineNumber: 83,
+        columnNumber: 7
+      }
+    }), /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement("div", {
+      ref: nodeRef,
+      __self: this,
+      __source: {
+        fileName: Fade_jsxFileName,
+        lineNumber: 84,
+        columnNumber: 9
+      }
+    }, function (status, innerProps) {
+      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
+        className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
+      }));
     }));
-  });
-});
-Fade.displayName = 'Fade';
-/* harmony default export */ var src_Fade = (Fade);
+  };
+  return Fade;
+}(external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.Component);
+Fade_Fade.propTypes = Fade_propTypes;
+Fade_Fade.defaultProps = Fade_defaultProps;
+/* harmony default export */ var src_Fade = (Fade_Fade);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/bind.js
 var instance_bind = __webpack_require__(21);
 var instance_bind_default = /*#__PURE__*/__webpack_require__.n(instance_bind);
