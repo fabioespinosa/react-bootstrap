@@ -1,3 +1,14 @@
+## [3.3.3](https://github.com/react-bootstrap/react-bootstrap/compare/v3.2.2...v3.3.3) (2025-07-10)
+
+
+### Bug Fixes
+
+* back to original ([428e5a3](https://github.com/react-bootstrap/react-bootstrap/commit/428e5a3b864331ef5a302fa1294e1c73826ef418))
+
+
+
+
+
 ## [3.3.2](https://github.com/react-bootstrap/react-bootstrap/compare/v3.2.2...v3.3.2) (2025-07-10)
 
 
