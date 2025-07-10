@@ -4544,8 +4544,7 @@ Transition_Transition.EXITING = EXITING;
 
 var _excluded = ["className", "children"];
 var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js",
-  _fadeStyles,
-  Fade_this = undefined;
+  _fadeStyles;
 
 
 
@@ -4607,25 +4606,34 @@ var Fade_defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.forwardRef(function (_ref, ref) {
+function Fade(_ref) {
   var className = _ref.className,
     children = _ref.children,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
+  var nodeRef = external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.useRef(null);
   return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
-    nodeRef: ref
+    nodeRef: nodeRef
   }, props, {
-    __self: Fade_this,
+    __self: this,
     __source: {
       fileName: Fade_jsxFileName,
-      lineNumber: 77,
-      columnNumber: 3
+      lineNumber: 80,
+      columnNumber: 5
     }
-  }), function (status, innerProps) {
+  }), /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement("div", {
+    ref: nodeRef,
+    __self: this,
+    __source: {
+      fileName: Fade_jsxFileName,
+      lineNumber: 81,
+      columnNumber: 7
+    }
+  }, function (status, innerProps) {
     return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
       className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
     }));
-  });
-});
+  }));
+}
 Fade.propTypes = Fade_propTypes;
 Fade.defaultProps = Fade_defaultProps;
 /* harmony default export */ var src_Fade = (Fade);

@@ -73,21 +73,27 @@ const fadeStyles = {
   [ENTERING]: 'in',
   [ENTERED]: 'in'
 };
-const Fade = React.forwardRef(({ className, children, ...props }, ref) => (
-  <Transition nodeRef={ref} {...props}>
-    {(status, innerProps) =>
-      React.cloneElement(children, {
-        ...innerProps,
-        className: classNames(
-          'fade',
-          className,
-          children.props.className,
-          fadeStyles[status]
-        )
-      })
-    }
-  </Transition>
-));
+function Fade({ className, children, ...props }) {
+  const nodeRef = React.useRef(null);
+
+  return (
+    <Transition nodeRef={nodeRef} {...props}>
+      <div ref={nodeRef}>
+        {(status, innerProps) =>
+          React.cloneElement(children, {
+            ...innerProps,
+            className: classNames(
+              'fade',
+              className,
+              children.props.className,
+              fadeStyles[status]
+            )
+          })
+        }
+      </div>
+    </Transition>
+  );
+}
 
 Fade.propTypes = propTypes;
 Fade.defaultProps = defaultProps;
