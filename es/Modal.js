@@ -132,6 +132,11 @@ var Modal = /*#__PURE__*/function (_React$Component) {
     var _context, _context2, _context3, _context4, _context5;
     var _this;
     _this = _React$Component.call(this, props, context) || this;
+    _this.handleEnter = function (node, isAppearing) {
+      if (node) {
+        _this.updateStyle(node);
+      }
+    };
     _this.handleDialogBackdropMouseDown = function () {
       _this._waitingForMouseUp = true;
     };
@@ -237,6 +242,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
       backdrop: backdrop,
       backdropTransition: animation ? BackdropTransition : undefined,
       renderBackdrop: renderBackdrop,
+      onEnter: this.handleEnter,
       onEntering: createChainedFunction(onEntering, this.handleEntering),
       onExited: createChainedFunction(onExited, this.handleExited),
       onMouseUp: this.handleMouseUp

@@ -187,6 +187,12 @@ class Modal extends React.Component {
     this.props.onHide();
   }
 
+  handleEnter = (node, isAppearing) => {
+    if (node) {
+      this.updateStyle(node);
+    }
+  };
+
   handleEntering() {
     // FIXME: This should work even when animation is disabled.
     events.on(window, 'resize', this.handleWindowResize);
@@ -285,6 +291,7 @@ class Modal extends React.Component {
         backdrop={backdrop}
         backdropTransition={animation ? BackdropTransition : undefined}
         renderBackdrop={renderBackdrop}
+        onEnter={this.handleEnter}
         onEntering={createChainedFunction(onEntering, this.handleEntering)}
         onExited={createChainedFunction(onExited, this.handleExited)}
         onMouseUp={this.handleMouseUp}

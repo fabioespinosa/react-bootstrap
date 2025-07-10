@@ -75,8 +75,8 @@ const defaultProps = {
 };
 
 const fadeStyles = {
-  [ENTERING]: 'in',
-  [ENTERED]: 'in'
+  [ENTERING]: 'show',
+  [ENTERED]: 'show'
 };
 
 const Fade = React.forwardRef((props, ref) => {

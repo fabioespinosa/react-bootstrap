@@ -4610,7 +4610,7 @@ var Fade_defaultProps = {
   unmountOnExit: false,
   appear: false
 };
-var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
+var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'show', _fadeStyles[ENTERED] = 'show', _fadeStyles);
 var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.forwardRef(function (props, ref) {
   var className = props.className,
     children = props.children,
@@ -6397,6 +6397,11 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
     var _context, _context2, _context3, _context4, _context5;
     var _this;
     _this = _React$Component.call(this, props, context) || this;
+    _this.handleEnter = function (node, isAppearing) {
+      if (node) {
+        _this.updateStyle(node);
+      }
+    };
     _this.handleDialogBackdropMouseDown = function () {
       _this._waitingForMouseUp = true;
     };
@@ -6493,7 +6498,7 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
         __self: _this2,
         __source: {
           fileName: Modal_jsxFileName,
-          lineNumber: 266,
+          lineNumber: 272,
           columnNumber: 7
         }
       }));
@@ -6509,13 +6514,14 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
       backdrop: backdrop,
       backdropTransition: animation ? Modal_BackdropTransition : undefined,
       renderBackdrop: renderBackdrop,
+      onEnter: this.handleEnter,
       onEntering: utils_createChainedFunction(onEntering, this.handleEntering),
       onExited: utils_createChainedFunction(onExited, this.handleExited),
       onMouseUp: this.handleMouseUp,
       __self: this,
       __source: {
         fileName: Modal_jsxFileName,
-        lineNumber: 279,
+        lineNumber: 285,
         columnNumber: 7
       }
     }), /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(Dialog, _extends({}, dialogProps, {
@@ -6527,7 +6533,7 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
       __self: this,
       __source: {
         fileName: Modal_jsxFileName,
-        lineNumber: 292,
+        lineNumber: 299,
         columnNumber: 9
       }
     }), children));
