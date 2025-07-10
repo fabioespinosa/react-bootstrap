@@ -1,3 +1,14 @@
+## [3.0.1](https://github.com/fabioespinosa/react-bootstrap/compare/v3.0.0...v3.0.1) (2025-07-10)
+
+
+### Bug Fixes
+
+* new package ([7120e96](https://github.com/fabioespinosa/react-bootstrap/commit/7120e96bba3437b3d060f933052266ef3efb882e))
+
+
+
+
+
 # [3.0.0](https://github.com/react-bootstrap/react-bootstrap/compare/v3.0.0-beta.2...v3.0.0) (2025-07-10)
 
 
