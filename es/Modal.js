@@ -10,8 +10,8 @@ import canUseDOM from 'dom-helpers/util/inDOM';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import React from 'react';
 import PropTypes from 'prop-types';
-import BaseModal from 'react-overlays/lib/Modal';
-import isOverflowing from 'react-overlays/lib/utils/isOverflowing';
+import BaseModal from 'react-overlays/Modal';
+import isOverflowing from 'react-overlays/isOverflowing';
 import elementType from 'prop-types-extra/lib/elementType';
 import Fade from './Fade';
 import Body from './ModalBody';
@@ -220,10 +220,15 @@ var Modal = /*#__PURE__*/function (_React$Component) {
       onEntering = _this$props.onEntering,
       onExited = _this$props.onExited,
       props = _objectWithoutPropertiesLoose(_this$props, _excluded);
+    var inClassName = show && !animation && 'in';
+    var renderBackdrop = function renderBackdrop(backdropProps) {
+      return /*#__PURE__*/React.createElement("div", _extends({}, backdropProps, {
+        className: classNames(prefix(props, 'backdrop'), backdropClassName, inClassName)
+      }));
+    };
     var _splitComponentProps = splitComponentProps(props, BaseModal),
       baseModalProps = _splitComponentProps[0],
       dialogProps = _splitComponentProps[1];
-    var inClassName = show && !animation && 'in';
     return /*#__PURE__*/React.createElement(BaseModal, _extends({}, baseModalProps, {
       ref: this.setModalRef,
       show: show,
@@ -231,7 +236,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
       transition: animation ? DialogTransition : undefined,
       backdrop: backdrop,
       backdropTransition: animation ? BackdropTransition : undefined,
-      backdropClassName: classNames(prefix(props, 'backdrop'), backdropClassName, inClassName),
+      renderBackdrop: renderBackdrop,
       onEntering: createChainedFunction(onEntering, this.handleEntering),
       onExited: createChainedFunction(onExited, this.handleExited),
       onMouseUp: this.handleMouseUp
