@@ -19,12 +19,6 @@ export default defineConfig({
             hasTouch: true,
           },
         },
-        {
-          browser: 'firefox',
-          context: {
-            hasTouch: true,
-          },
-        },
       ],
     },
     coverage: {
