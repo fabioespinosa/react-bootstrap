@@ -1,3 +1,14 @@
+## [3.0.4](https://github.com/fabioespinosa/react-bootstrap/compare/v3.0.2...v3.0.4) (2025-07-10)
+
+
+### Bug Fixes
+
+* version ([3eb4515](https://github.com/fabioespinosa/react-bootstrap/commit/3eb4515bc70427e7ab37b0c3490e41cd7cb7fb46))
+
+
+
+
+
 ## [3.0.2](https://github.com/fabioespinosa/react-bootstrap/compare/v3.0.1...v3.0.2) (2025-07-10)
 
 
