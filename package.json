@@ -133,7 +133,7 @@
     }
   },
   "publishConfig": {
-    "access": "public"
+    "directory": "lib"
   },
   "release": {
     "conventionalCommits": true
