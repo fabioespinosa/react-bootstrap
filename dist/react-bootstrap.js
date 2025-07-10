@@ -4542,7 +4542,7 @@ Transition_Transition.EXITING = EXITING;
 // CONCATENATED MODULE: ./src/Fade.js
 
 
-var _excluded = ["className", "children"];
+var _excluded = ["className", "children", "onEnter"];
 var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js",
   _fadeStyles,
   Fade_this = undefined;
@@ -4550,6 +4550,10 @@ var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/
 
 
 
+function triggerBrowserReflow(node) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  node.offsetHeight;
+}
 var Fade_propTypes = {
   /**
    * Show the component; triggers the fade in or fade out animation
@@ -4607,32 +4611,24 @@ var Fade_defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-function mergeRefs(refA, refB) {
-  var a = !refA || typeof refA === 'function' ? refA : function (value) {
-    refA.current = value;
-  };
-  var b = !refB || typeof refB === 'function' ? refB : function (value) {
-    refB.current = value;
-  };
-  return function (value) {
-    if (a) a(value);
-    if (b) b(value);
-  };
-}
 var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.forwardRef(function (props, ref) {
-  var nodeRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useRef"])(null);
-  var mergedRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useMemo"])(function () {
-    return mergeRefs(nodeRef, ref);
-  }, [ref]);
   var className = props.className,
     children = props.children,
+    onEnter = props.onEnter,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var handleEnter = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(function (node, isAppearing) {
+    triggerBrowserReflow(node);
+    onEnter == null || onEnter(node, isAppearing);
+  }, [onEnter]);
+  var nodeRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useRef"])(null);
   return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({}, rest, {
-    nodeRef: mergedRef,
+    ref: ref,
+    nodeRef: nodeRef,
+    onEnter: handleEnter,
     __self: Fade_this,
     __source: {
       fileName: Fade_jsxFileName,
-      lineNumber: 103,
+      lineNumber: 94,
       columnNumber: 5
     }
   }), function (status, innerProps) {

@@ -1,10 +1,15 @@
 import classNames from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Transition, {
   ENTERED,
   ENTERING
 } from 'react-transition-group/Transition';
+
+function triggerBrowserReflow(node) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  node.offsetHeight;
+}
 
 const propTypes = {
   /**
@@ -74,33 +79,19 @@ const fadeStyles = {
   [ENTERED]: 'in'
 };
 
-function mergeRefs(refA, refB) {
-  const a =
-    !refA || typeof refA === 'function'
-      ? refA
-      : value => {
-          refA.current = value;
-        };
-  const b =
-    !refB || typeof refB === 'function'
-      ? refB
-      : value => {
-          refB.current = value;
-        };
-
-  return value => {
-    if (a) a(value);
-    if (b) b(value);
-  };
-}
-
 const Fade = React.forwardRef((props, ref) => {
+  const { className, children, onEnter, ...rest } = props;
+  const handleEnter = useCallback(
+    (node, isAppearing) => {
+      triggerBrowserReflow(node);
+      onEnter?.(node, isAppearing);
+    },
+    [onEnter]
+  );
   const nodeRef = useRef(null);
-  const mergedRef = useMemo(() => mergeRefs(nodeRef, ref), [ref]);
-  const { className, children, ...rest } = props;
 
   return (
-    <Transition {...rest} nodeRef={mergedRef}>
+    <Transition {...rest} ref={ref} nodeRef={nodeRef} onEnter={handleEnter}>
       {(status, innerProps) =>
         React.cloneElement(children, {
           ...innerProps,

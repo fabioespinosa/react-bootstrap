@@ -1,11 +1,15 @@
 import _extends from "@babel/runtime-corejs3/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime-corejs3/helpers/esm/objectWithoutPropertiesLoose";
-var _excluded = ["className", "children"];
+var _excluded = ["className", "children", "onEnter"];
 var _fadeStyles;
 import classNames from 'classnames';
-import React, { useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Transition, { ENTERED, ENTERING } from 'react-transition-group/Transition';
+function triggerBrowserReflow(node) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  node.offsetHeight;
+}
 var propTypes = {
   /**
    * Show the component; triggers the fade in or fade out animation
@@ -63,28 +67,20 @@ var defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-function mergeRefs(refA, refB) {
-  var a = !refA || typeof refA === 'function' ? refA : function (value) {
-    refA.current = value;
-  };
-  var b = !refB || typeof refB === 'function' ? refB : function (value) {
-    refB.current = value;
-  };
-  return function (value) {
-    if (a) a(value);
-    if (b) b(value);
-  };
-}
 var Fade = /*#__PURE__*/React.forwardRef(function (props, ref) {
-  var nodeRef = useRef(null);
-  var mergedRef = useMemo(function () {
-    return mergeRefs(nodeRef, ref);
-  }, [ref]);
   var className = props.className,
     children = props.children,
+    onEnter = props.onEnter,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
+  var handleEnter = useCallback(function (node, isAppearing) {
+    triggerBrowserReflow(node);
+    onEnter == null || onEnter(node, isAppearing);
+  }, [onEnter]);
+  var nodeRef = useRef(null);
   return /*#__PURE__*/React.createElement(Transition, _extends({}, rest, {
-    nodeRef: mergedRef
+    ref: ref,
+    nodeRef: nodeRef,
+    onEnter: handleEnter
   }), function (status, innerProps) {
     return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
       className: classNames('fade', className, children.props.className, fadeStyles[status])
