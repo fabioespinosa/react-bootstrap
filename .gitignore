@@ -1,5 +1,3 @@
-lib/
-cjs/
 coverage/
 www/.cache/
 www/public/
