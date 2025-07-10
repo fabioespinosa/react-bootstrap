@@ -5,9 +5,8 @@ import canUseDOM from 'dom-helpers/util/inDOM';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import BaseModal from 'react-overlays/lib/Modal';
-import isOverflowing from 'react-overlays/lib/utils/isOverflowing';
+import BaseModal from 'react-overlays/Modal';
+import isOverflowing from 'react-overlays/isOverflowing';
 import elementType from 'prop-types-extra/lib/elementType';
 
 import Fade from './Fade';
@@ -211,7 +210,7 @@ class Modal extends React.Component {
 
     const document = ownerDocument(dialogNode);
     const bodyIsOverflowing = isOverflowing(
-      ReactDOM.findDOMNode(this.props.container || document.body)
+      this.props.container || document.body
     );
     const modalIsOverflowing =
       dialogHeight > document.documentElement.clientHeight;

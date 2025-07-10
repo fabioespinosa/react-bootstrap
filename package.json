@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap",
-  "version": "0.33.1",
+  "version": "0.33.2",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   "module": "es/index.js",
   "scripts": {
     "bootstrap": "yarn && yarn --cwd www",
-    "build": "node tools/build.js",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider node tools/build.js",
     "build-docs": "yarn --cwd www build",
     "deploy-docs": "yarn --cwd www deploy",
     "start": "yarn --cwd www run develop",
@@ -21,7 +21,7 @@
     "format": "npm run ci-lint . -- --fix",
     "lint": "npm run ci-lint .",
     "precommit": "lint-staged",
-    "release": "release && yarn deploy-docs",
+    "release": "release",
     "tdd": "karma start",
     "test": "npm run lint && npm run test-browser && npm run test-node",
     "test-browser": "cross-env NODE_ENV=test karma start --single-run",
@@ -122,7 +122,7 @@
     "keycode": "^2.2.0",
     "prop-types": "^15.6.1",
     "prop-types-extra": "^1.0.1",
-    "react-overlays": "^0.9.0",
+    "react-overlays": "^5.2.1",
     "react-prop-types": "^0.4.0",
     "react-transition-group": "^2.0.0",
     "uncontrollable": "^7.0.2",
