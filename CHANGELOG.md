@@ -1,3 +1,9 @@
+## [3.0.5](https://github.com/fabioespinosa/react-bootstrap/compare/v3.0.4...v3.0.5) (2025-07-10)
+
+
+
+
+
 ## [3.0.4](https://github.com/fabioespinosa/react-bootstrap/compare/v3.0.2...v3.0.4) (2025-07-10)
 
 
