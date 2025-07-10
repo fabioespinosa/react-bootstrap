@@ -5086,7 +5086,6 @@ Transition_Transition.EXITING = EXITING;
 
 
 
-
 var _fadeStyles,
     Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js";
 
@@ -5162,44 +5161,31 @@ var Fade_defaultProps = {
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
 
-var Fade_Fade = /*#__PURE__*/function (_React$Component) {
-  _inheritsLoose(Fade, _React$Component);
+function Fade(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children"]);
 
-  function Fade() {
-    return _React$Component.apply(this, arguments) || this;
-  }
+  var nodeRef = external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.useRef(null);
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
+    nodeRef: nodeRef
+  }, props, {
+    __self: this,
+    __source: {
+      fileName: Fade_jsxFileName,
+      lineNumber: 80,
+      columnNumber: 5
+    }
+  }), function (status, innerProps) {
+    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
+      className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
+    }));
+  });
+}
 
-  var _proto = Fade.prototype;
-
-  _proto.render = function render() {
-    var _this$props = this.props,
-        className = _this$props.className,
-        children = _this$props.children,
-        props = _objectWithoutPropertiesLoose(_this$props, ["className", "children"]);
-
-    var nodeRef = external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.useRef(null);
-    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
-      nodeRef: nodeRef
-    }, props, {
-      __self: this,
-      __source: {
-        fileName: Fade_jsxFileName,
-        lineNumber: 83,
-        columnNumber: 7
-      }
-    }), function (status, innerProps) {
-      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
-        className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
-      }));
-    });
-  };
-
-  return Fade;
-}(external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.Component);
-
-Fade_Fade.propTypes = Fade_propTypes;
-Fade_Fade.defaultProps = Fade_defaultProps;
-/* harmony default export */ var src_Fade = (Fade_Fade);
+Fade.propTypes = Fade_propTypes;
+Fade.defaultProps = Fade_defaultProps;
+/* harmony default export */ var src_Fade = (Fade);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/bind.js
 var instance_bind = __webpack_require__(21);
 var instance_bind_default = /*#__PURE__*/__webpack_require__.n(instance_bind);

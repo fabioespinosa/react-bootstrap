@@ -1,6 +1,5 @@
 import _extends from "@babel/runtime-corejs3/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime-corejs3/helpers/esm/objectWithoutPropertiesLoose";
-import _inheritsLoose from "@babel/runtime-corejs3/helpers/esm/inheritsLoose";
 
 var _fadeStyles;
 
@@ -76,33 +75,20 @@ var defaultProps = {
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
 
-var Fade = /*#__PURE__*/function (_React$Component) {
-  _inheritsLoose(Fade, _React$Component);
+function Fade(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children"]);
 
-  function Fade() {
-    return _React$Component.apply(this, arguments) || this;
-  }
-
-  var _proto = Fade.prototype;
-
-  _proto.render = function render() {
-    var _this$props = this.props,
-        className = _this$props.className,
-        children = _this$props.children,
-        props = _objectWithoutPropertiesLoose(_this$props, ["className", "children"]);
-
-    var nodeRef = React.useRef(null);
-    return /*#__PURE__*/React.createElement(Transition, _extends({
-      nodeRef: nodeRef
-    }, props), function (status, innerProps) {
-      return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
-        className: classNames('fade', className, children.props.className, fadeStyles[status])
-      }));
-    });
-  };
-
-  return Fade;
-}(React.Component);
+  var nodeRef = React.useRef(null);
+  return /*#__PURE__*/React.createElement(Transition, _extends({
+    nodeRef: nodeRef
+  }, props), function (status, innerProps) {
+    return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
+      className: classNames('fade', className, children.props.className, fadeStyles[status])
+    }));
+  });
+}
 
 Fade.propTypes = propTypes;
 Fade.defaultProps = defaultProps;
