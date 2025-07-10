@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Transition, {
   ENTERED,
@@ -74,32 +74,48 @@ const fadeStyles = {
   [ENTERED]: 'in'
 };
 
-class Fade extends React.Component {
-  render() {
-    const nodeRef = React.createRef(null);
-    const { className, children, ...props } = this.props;
+function mergeRefs(refA, refB) {
+  const a =
+    !refA || typeof refA === 'function'
+      ? refA
+      : value => {
+          refA.current = value;
+        };
+  const b =
+    !refB || typeof refB === 'function'
+      ? refB
+      : value => {
+          refB.current = value;
+        };
 
-    return (
-      <Transition {...props} nodeRef={nodeRef}>
-        <div ref={nodeRef}>
-          {(status, innerProps) =>
-            React.cloneElement(children, {
-              ...innerProps,
-              className: classNames(
-                'fade',
-                className,
-                children.props.className,
-                fadeStyles[status]
-              )
-            })
-          }
-        </div>
-      </Transition>
-    );
-  }
+  return value => {
+    if (a) a(value);
+    if (b) b(value);
+  };
 }
 
-Fade.propTypes = propTypes;
+const Fade = React.forwardRef((props, ref) => {
+  const nodeRef = useRef(null);
+  const mergedRef = useMemo(() => mergeRefs(nodeRef, ref), [ref]);
+  const { className, children, ...rest } = props;
+
+  return (
+    <Transition {...rest} nodeRef={mergedRef}>
+      {(status, innerProps) =>
+        React.cloneElement(children, {
+          ...innerProps,
+          className: classNames(
+            'fade',
+            className,
+            children.props.className,
+            fadeStyles[status]
+          )
+        })
+      }
+    </Transition>
+  );
+});
+
 Fade.defaultProps = defaultProps;
 
 export default Fade;

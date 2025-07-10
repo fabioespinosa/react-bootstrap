@@ -111,8 +111,6 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.28.0",
-    "@restart/hooks": "^0.6.2",
-    "@restart/ui": "^1.9.4",
     "classnames": "^2.2.5",
     "dom-helpers": "^3.2.0",
     "invariant": "^2.2.4",

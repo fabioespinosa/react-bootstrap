@@ -4542,10 +4542,10 @@ Transition_Transition.EXITING = EXITING;
 // CONCATENATED MODULE: ./src/Fade.js
 
 
-
 var _excluded = ["className", "children"];
 var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js",
-  _fadeStyles;
+  _fadeStyles,
+  Fade_this = undefined;
 
 
 
@@ -4607,45 +4607,42 @@ var Fade_defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-var Fade_Fade = /*#__PURE__*/function (_React$Component) {
-  function Fade() {
-    return _React$Component.apply(this, arguments) || this;
-  }
-  _inheritsLoose(Fade, _React$Component);
-  var _proto = Fade.prototype;
-  _proto.render = function render() {
-    var nodeRef = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createRef(null);
-    var _this$props = this.props,
-      className = _this$props.className,
-      children = _this$props.children,
-      props = _objectWithoutPropertiesLoose(_this$props, _excluded);
-    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({}, props, {
-      nodeRef: nodeRef,
-      __self: this,
-      __source: {
-        fileName: Fade_jsxFileName,
-        lineNumber: 83,
-        columnNumber: 7
-      }
-    }), /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement("div", {
-      ref: nodeRef,
-      __self: this,
-      __source: {
-        fileName: Fade_jsxFileName,
-        lineNumber: 84,
-        columnNumber: 9
-      }
-    }, function (status, innerProps) {
-      return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
-        className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
-      }));
-    }));
+function mergeRefs(refA, refB) {
+  var a = !refA || typeof refA === 'function' ? refA : function (value) {
+    refA.current = value;
   };
-  return Fade;
-}(external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.Component);
-Fade_Fade.propTypes = Fade_propTypes;
-Fade_Fade.defaultProps = Fade_defaultProps;
-/* harmony default export */ var src_Fade = (Fade_Fade);
+  var b = !refB || typeof refB === 'function' ? refB : function (value) {
+    refB.current = value;
+  };
+  return function (value) {
+    if (a) a(value);
+    if (b) b(value);
+  };
+}
+var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.forwardRef(function (props, ref) {
+  var nodeRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useRef"])(null);
+  var mergedRef = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useMemo"])(function () {
+    return mergeRefs(nodeRef, ref);
+  }, [ref]);
+  var className = props.className,
+    children = props.children,
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({}, rest, {
+    nodeRef: mergedRef,
+    __self: Fade_this,
+    __source: {
+      fileName: Fade_jsxFileName,
+      lineNumber: 103,
+      columnNumber: 5
+    }
+  }), function (status, innerProps) {
+    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
+      className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
+    }));
+  });
+});
+Fade.defaultProps = Fade_defaultProps;
+/* harmony default export */ var src_Fade = (Fade);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs3/core-js-stable/instance/bind.js
 var instance_bind = __webpack_require__(21);
 var instance_bind_default = /*#__PURE__*/__webpack_require__.n(instance_bind);
@@ -4804,7 +4801,7 @@ function listen(node, eventName, handler, options) {
   };
 }
 /* harmony default export */ var esm_listen = (listen);
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/useMounted.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/useMounted.js
 
 
 /**
@@ -4838,7 +4835,7 @@ function useMounted() {
   }, []);
   return isMounted.current;
 }
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/useUpdatedRef.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/useUpdatedRef.js
 
 
 /**
@@ -4852,7 +4849,7 @@ function useUpdatedRef(value) {
   valueRef.current = value;
   return valueRef;
 }
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/useWillUnmount.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/useWillUnmount.js
 
 
 
@@ -4866,7 +4863,7 @@ function useWillUnmount(fn) {
   const onUnmount = useUpdatedRef(fn);
   Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useEffect"])(() => () => onUnmount.current(), []);
 }
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/usePrevious.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/usePrevious.js
 
 
 /**
@@ -4893,7 +4890,7 @@ function usePrevious(value) {
   });
   return ref.current;
 }
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/useCommittedRef.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/useCommittedRef.js
 
 
 /**
@@ -4913,7 +4910,7 @@ function useCommittedRef(value) {
   return ref;
 }
 /* harmony default export */ var esm_useCommittedRef = (useCommittedRef);
-// CONCATENATED MODULE: ./node_modules/react-overlays/node_modules/@restart/hooks/esm/useEventCallback.js
+// CONCATENATED MODULE: ./node_modules/@restart/hooks/esm/useEventCallback.js
 
 
 function useEventCallback(fn) {

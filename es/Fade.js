@@ -1,10 +1,9 @@
 import _extends from "@babel/runtime-corejs3/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime-corejs3/helpers/esm/objectWithoutPropertiesLoose";
-import _inheritsLoose from "@babel/runtime-corejs3/helpers/esm/inheritsLoose";
 var _excluded = ["className", "children"];
 var _fadeStyles;
 import classNames from 'classnames';
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Transition, { ENTERED, ENTERING } from 'react-transition-group/Transition';
 var propTypes = {
@@ -64,30 +63,33 @@ var defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-var Fade = /*#__PURE__*/function (_React$Component) {
-  function Fade() {
-    return _React$Component.apply(this, arguments) || this;
-  }
-  _inheritsLoose(Fade, _React$Component);
-  var _proto = Fade.prototype;
-  _proto.render = function render() {
-    var nodeRef = /*#__PURE__*/React.createRef(null);
-    var _this$props = this.props,
-      className = _this$props.className,
-      children = _this$props.children,
-      props = _objectWithoutPropertiesLoose(_this$props, _excluded);
-    return /*#__PURE__*/React.createElement(Transition, _extends({}, props, {
-      nodeRef: nodeRef
-    }), /*#__PURE__*/React.createElement("div", {
-      ref: nodeRef
-    }, function (status, innerProps) {
-      return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
-        className: classNames('fade', className, children.props.className, fadeStyles[status])
-      }));
-    }));
+function mergeRefs(refA, refB) {
+  var a = !refA || typeof refA === 'function' ? refA : function (value) {
+    refA.current = value;
   };
-  return Fade;
-}(React.Component);
-Fade.propTypes = propTypes;
+  var b = !refB || typeof refB === 'function' ? refB : function (value) {
+    refB.current = value;
+  };
+  return function (value) {
+    if (a) a(value);
+    if (b) b(value);
+  };
+}
+var Fade = /*#__PURE__*/React.forwardRef(function (props, ref) {
+  var nodeRef = useRef(null);
+  var mergedRef = useMemo(function () {
+    return mergeRefs(nodeRef, ref);
+  }, [ref]);
+  var className = props.className,
+    children = props.children,
+    rest = _objectWithoutPropertiesLoose(props, _excluded);
+  return /*#__PURE__*/React.createElement(Transition, _extends({}, rest, {
+    nodeRef: mergedRef
+  }), function (status, innerProps) {
+    return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
+      className: classNames('fade', className, children.props.className, fadeStyles[status])
+    }));
+  });
+});
 Fade.defaultProps = defaultProps;
 export default Fade;
