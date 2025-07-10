@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap",
-  "version": "0.33.3",
+  "version": "0.33.4",
   "description": "Bootstrap 3 components built with React",
   "repository": {
     "type": "git",
@@ -52,10 +52,6 @@
   ],
   "author": "Stephen J. Collings <stevoland@gmail.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.3.0",
-    "react-dom": ">=16.3.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.4.0",
     "@babel/core": "^7.4.0",
@@ -106,9 +102,8 @@
     "lodash": "^4.17.11",
     "mocha": "^5.2.0",
     "prettier": "^1.12.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-test-renderer": "^16.8.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "release-script": "^1.0.2",
     "sinon": "^2.3.2",
     "sinon-chai": "^2.8.0",

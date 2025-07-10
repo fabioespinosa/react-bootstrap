@@ -5177,11 +5177,14 @@ var Fade_Fade = /*#__PURE__*/function (_React$Component) {
         children = _this$props.children,
         props = _objectWithoutPropertiesLoose(_this$props, ["className", "children"]);
 
-    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({}, props, {
+    var nodeRef = external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.useRef(null);
+    return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(esm_Transition, _extends({
+      nodeRef: nodeRef
+    }, props, {
       __self: this,
       __source: {
         fileName: Fade_jsxFileName,
-        lineNumber: 82,
+        lineNumber: 83,
         columnNumber: 7
       }
     }), function (status, innerProps) {

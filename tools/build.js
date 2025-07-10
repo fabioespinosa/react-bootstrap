@@ -68,11 +68,7 @@ const buildBower = step('browser package', bowerRoot, async () => {
       license: pkgJson.license,
       main: ['react-bootstrap.js'],
       keywords: pkgJson.keywords,
-      ignore: ['**/.*'],
-      dependencies: {
-        react: pkgJson.peerDependencies.react,
-        'react-dom': pkgJson.peerDependencies['react-dom']
-      }
+      ignore: ['**/.*']
     },
     { spaces: 2 }
   );

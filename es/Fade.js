@@ -91,7 +91,10 @@ var Fade = /*#__PURE__*/function (_React$Component) {
         children = _this$props.children,
         props = _objectWithoutPropertiesLoose(_this$props, ["className", "children"]);
 
-    return /*#__PURE__*/React.createElement(Transition, props, function (status, innerProps) {
+    var nodeRef = React.useRef(null);
+    return /*#__PURE__*/React.createElement(Transition, _extends({
+      nodeRef: nodeRef
+    }, props), function (status, innerProps) {
       return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
         className: classNames('fade', className, children.props.className, fadeStyles[status])
       }));
