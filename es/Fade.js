@@ -6,7 +6,7 @@ import * as React from 'react';
 import { ENTERED, ENTERING } from 'react-transition-group/Transition';
 import { getChildRef } from '@restart/ui/utils';
 import classNames from 'classnames';
-import transitionEndListener from './transitionEndListener';
+// import transitionEndListener from './transitionEndListener';
 import TransitionWrapper from './TransitionWrapper';
 
 // reading a dimension prop will cause the browser to recalculate,
@@ -35,8 +35,8 @@ var Fade = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     onEnter == null || onEnter(node, isAppearing);
   }, [onEnter]);
   return /*#__PURE__*/React.createElement(TransitionWrapper, _extends({
-    ref: ref,
-    addEndListener: transitionEndListener
+    ref: ref
+    // addEndListener={transitionEndListener}
   }, props, {
     onEnter: handleEnter,
     childRef: getChildRef(children)

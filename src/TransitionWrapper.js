@@ -54,9 +54,9 @@ const TransitionWrapper = React.forwardRef(
     const handleExit = useCallback(normalize(onExit), [onExit]);
     const handleExiting = useCallback(normalize(onExiting), [onExiting]);
     const handleExited = useCallback(normalize(onExited), [onExited]);
-    const handleAddEndListener = useCallback(normalize(addEndListener), [
-      addEndListener
-    ]);
+    // const handleAddEndListener = useCallback(normalize(addEndListener), [
+    //   addEndListener
+    // ]);
 
     return (
       <Transition
@@ -68,7 +68,7 @@ const TransitionWrapper = React.forwardRef(
         onExit={handleExit}
         onExited={handleExited}
         onExiting={handleExiting}
-        addEndListener={handleAddEndListener}
+        // addEndListener={handleAddEndListener}
         nodeRef={nodeRef}
       >
         {typeof children === 'function'

@@ -47,7 +47,10 @@ var TransitionWrapper = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var handleExit = useCallback(normalize(onExit), [onExit]);
   var handleExiting = useCallback(normalize(onExiting), [onExiting]);
   var handleExited = useCallback(normalize(onExited), [onExited]);
-  var handleAddEndListener = useCallback(normalize(addEndListener), [addEndListener]);
+  // const handleAddEndListener = useCallback(normalize(addEndListener), [
+  //   addEndListener
+  // ]);
+
   return /*#__PURE__*/React.createElement(Transition, _extends({
     ref: ref
   }, props, {
@@ -56,8 +59,9 @@ var TransitionWrapper = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
     onEntering: handleEntering,
     onExit: handleExit,
     onExited: handleExited,
-    onExiting: handleExiting,
-    addEndListener: handleAddEndListener,
+    onExiting: handleExiting
+    // addEndListener={handleAddEndListener}
+    ,
     nodeRef: nodeRef
   }), typeof children === 'function' ? function (status, innerProps) {
     return (
