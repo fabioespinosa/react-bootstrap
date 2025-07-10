@@ -63,19 +63,18 @@ var defaultProps = {
   appear: false
 };
 var fadeStyles = (_fadeStyles = {}, _fadeStyles[ENTERING] = 'in', _fadeStyles[ENTERED] = 'in', _fadeStyles);
-function Fade(_ref) {
+var Fade = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var className = _ref.className,
     children = _ref.children,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
-  var nodeRef = React.useRef(null);
   return /*#__PURE__*/React.createElement(Transition, _extends({
-    nodeRef: nodeRef
+    ref: ref
   }, props), function (status, innerProps) {
     return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
       className: classNames('fade', className, children.props.className, fadeStyles[status])
     }));
   });
-}
+});
 Fade.propTypes = propTypes;
 Fade.defaultProps = defaultProps;
 export default Fade;
