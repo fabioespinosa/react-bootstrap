@@ -1,3 +1,24 @@
+# [3.0.0](https://github.com/react-bootstrap/react-bootstrap/compare/v3.0.0-beta.2...v3.0.0) (2025-07-10)
+
+
+### Bug Fixes
+
+* leave only modal ([dd09285](https://github.com/react-bootstrap/react-bootstrap/commit/dd0928524dba50da7146c5c2646cf00d83049e6c))
+* missing deps ([1aa4b80](https://github.com/react-bootstrap/react-bootstrap/commit/1aa4b80fa605cc8a208239adf84379e0528a4387))
+* missing export ([14185ee](https://github.com/react-bootstrap/react-bootstrap/commit/14185ee1927802f246226770b4ff6e9c388cb552))
+* missing index ([ba1e8e4](https://github.com/react-bootstrap/react-bootstrap/commit/ba1e8e418534ed2a552997fd2f5fe4c33149c258))
+* missing test ([4df2db4](https://github.com/react-bootstrap/react-bootstrap/commit/4df2db4f4c32b4d427b9b7e75798c7171aebe8f4))
+* remove tests ([25434a7](https://github.com/react-bootstrap/react-bootstrap/commit/25434a7bb4b896d5aff385355892687f7d8a3f99))
+
+
+### Features
+
+* **AccordionHeader:** add disabled prop ([#6940](https://github.com/react-bootstrap/react-bootstrap/issues/6940)) ([376c9ae](https://github.com/react-bootstrap/react-bootstrap/commit/376c9aeda3bf86ce88f36e42e6f78c66eb8ced4f))
+
+
+
+
+
 # [3.0.0-beta.2](https://github.com/react-bootstrap/react-bootstrap/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2025-05-24)
 
 
