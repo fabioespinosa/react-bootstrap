@@ -1,0 +1,8 @@
+import * as React from 'react';
+import type { ModalHandle } from '@restart/ui/Modal';
+import { type OffcanvasProps } from './Offcanvas';
+export type NavbarOffcanvasProps = Omit<OffcanvasProps, 'show'>;
+declare const NavbarOffcanvas: React.ForwardRefExoticComponent<
+  Omit<NavbarOffcanvasProps, 'ref'> & React.RefAttributes<ModalHandle>
+>;
+export default NavbarOffcanvas;

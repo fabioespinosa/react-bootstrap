@@ -1,0 +1,12 @@
+import type { ColProps } from './Col';
+export interface UseColMetadata {
+  as?: React.ElementType;
+  bsPrefix: string;
+  spans: string[];
+}
+export default function useCol({
+  as,
+  bsPrefix,
+  className,
+  ...props
+}: ColProps): [any, UseColMetadata];
