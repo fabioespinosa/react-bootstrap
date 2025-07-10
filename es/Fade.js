@@ -1,6 +1,6 @@
 import _extends from "@babel/runtime-corejs3/helpers/esm/extends";
 import _objectWithoutPropertiesLoose from "@babel/runtime-corejs3/helpers/esm/objectWithoutPropertiesLoose";
-var _excluded = ["className", "children", "onEnter"];
+var _excluded = ["className", "children", "onEnter", "childRef"];
 var _fadeStyles;
 import classNames from 'classnames';
 import React, { useCallback, useMemo, useRef } from 'react';
@@ -71,6 +71,7 @@ var Fade = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var className = props.className,
     children = props.children,
     onEnter = props.onEnter,
+    childRef = props.childRef,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
   var handleEnter = useCallback(function (node, isAppearing) {
     triggerBrowserReflow(node);
@@ -83,6 +84,7 @@ var Fade = /*#__PURE__*/React.forwardRef(function (props, ref) {
     onEnter: handleEnter
   }), function (status, innerProps) {
     return /*#__PURE__*/React.cloneElement(children, _extends({}, innerProps, {
+      ref: nodeRef,
       className: classNames('fade', className, children.props.className, fadeStyles[status])
     }));
   });

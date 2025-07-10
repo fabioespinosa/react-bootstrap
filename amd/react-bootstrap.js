@@ -4542,7 +4542,7 @@ Transition_Transition.EXITING = EXITING;
 // CONCATENATED MODULE: ./src/Fade.js
 
 
-var _excluded = ["className", "children", "onEnter"];
+var _excluded = ["className", "children", "onEnter", "childRef"];
 var Fade_jsxFileName = "/Users/fabioespinosa/Desktop/gradsthink/react-bootstrap/src/Fade.js",
   _fadeStyles,
   Fade_this = undefined;
@@ -4615,6 +4615,7 @@ var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_r
   var className = props.className,
     children = props.children,
     onEnter = props.onEnter,
+    childRef = props.childRef,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
   var handleEnter = Object(external_root_React_commonjs2_react_commonjs_react_amd_react_["useCallback"])(function (node, isAppearing) {
     triggerBrowserReflow(node);
@@ -4633,6 +4634,7 @@ var Fade = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_r
     }
   }), function (status, innerProps) {
     return /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.cloneElement(children, _extends({}, innerProps, {
+      ref: nodeRef,
       className: classnames_default()('fade', className, children.props.className, fadeStyles[status])
     }));
   });

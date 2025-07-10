@@ -80,7 +80,7 @@ const fadeStyles = {
 };
 
 const Fade = React.forwardRef((props, ref) => {
-  const { className, children, onEnter, ...rest } = props;
+  const { className, children, onEnter, childRef, ...rest } = props;
   const handleEnter = useCallback(
     (node, isAppearing) => {
       triggerBrowserReflow(node);
@@ -95,6 +95,7 @@ const Fade = React.forwardRef((props, ref) => {
       {(status, innerProps) =>
         React.cloneElement(children, {
           ...innerProps,
+          ref: nodeRef,
           className: classNames(
             'fade',
             className,
