@@ -1,3 +1,19 @@
+# [3.2.0](https://github.com/react-bootstrap/react-bootstrap/compare/v3.0.0-beta.2...v3.2.0) (2025-07-10)
+
+
+### Bug Fixes
+
+* in ([3d2b749](https://github.com/react-bootstrap/react-bootstrap/commit/3d2b74959d7287da626a7ce6d1dc292e2d4f7fd1))
+
+
+### Features
+
+* **AccordionHeader:** add disabled prop ([#6940](https://github.com/react-bootstrap/react-bootstrap/issues/6940)) ([376c9ae](https://github.com/react-bootstrap/react-bootstrap/commit/376c9aeda3bf86ce88f36e42e6f78c66eb8ced4f))
+
+
+
+
+
 # [3.0.0-beta.2](https://github.com/react-bootstrap/react-bootstrap/compare/v3.0.0-beta.1...v3.0.0-beta.2) (2025-05-24)
 
 
