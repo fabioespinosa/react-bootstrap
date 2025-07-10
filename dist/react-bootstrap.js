@@ -7187,9 +7187,9 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.handleMouseUp = function (ev) {
-      var dialogNode = _this._modal.getDialogElement();
+      var dialogNode = _this.dialogRef.current;
 
-      if (_this._waitingForMouseUp && ev.target === dialogNode) {
+      if (_this._waitingForMouseUp && dialogNode && ev.target === dialogNode) {
         _this._ignoreBackdropClick = true;
       }
 
@@ -7201,6 +7201,7 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
     _this.handleWindowResize = instance_bind_default()(_context3 = _this.handleWindowResize).call(_context3, _assertThisInitialized(_this));
     _this.handleDialogClick = instance_bind_default()(_context4 = _this.handleDialogClick).call(_context4, _assertThisInitialized(_this));
     _this.setModalRef = instance_bind_default()(_context5 = _this.setModalRef).call(_context5, _assertThisInitialized(_this));
+    _this.dialogRef = /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createRef();
     _this.state = {
       style: {}
     };
@@ -7255,7 +7256,11 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
       return;
     }
 
-    var dialogNode = this._modal.getDialogElement();
+    var dialogNode = this.dialogRef.current;
+
+    if (!dialogNode) {
+      return;
+    }
 
     var dialogHeight = dialogNode.scrollHeight;
     var document = ownerDocument_default()(dialogNode);
@@ -7302,10 +7307,11 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
       __self: this,
       __source: {
         fileName: Modal_jsxFileName,
-        lineNumber: 264,
+        lineNumber: 269,
         columnNumber: 7
       }
     }), /*#__PURE__*/external_root_React_commonjs2_react_commonjs_react_amd_react_default.a.createElement(Dialog, _extends({}, dialogProps, {
+      ref: this.dialogRef,
       style: _extends({}, this.state.style, style),
       className: classnames_default()(className, inClassName),
       onClick: backdrop === true ? this.handleDialogClick : null,
@@ -7313,7 +7319,7 @@ var src_Modal_Modal = /*#__PURE__*/function (_React$Component) {
       __self: this,
       __source: {
         fileName: Modal_jsxFileName,
-        lineNumber: 281,
+        lineNumber: 286,
         columnNumber: 9
       }
     }), children));

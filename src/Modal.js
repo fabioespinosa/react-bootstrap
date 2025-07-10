@@ -154,6 +154,8 @@ class Modal extends React.Component {
     this.handleDialogClick = this.handleDialogClick.bind(this);
     this.setModalRef = this.setModalRef.bind(this);
 
+    this.dialogRef = React.createRef();
+
     this.state = {
       style: {}
     };
@@ -205,7 +207,10 @@ class Modal extends React.Component {
       return;
     }
 
-    const dialogNode = this._modal.getDialogElement();
+    const dialogNode = this.dialogRef.current;
+    if (!dialogNode) {
+      return;
+    }
     const dialogHeight = dialogNode.scrollHeight;
 
     const document = ownerDocument(dialogNode);
@@ -234,8 +239,8 @@ class Modal extends React.Component {
   };
 
   handleMouseUp = ev => {
-    const dialogNode = this._modal.getDialogElement();
-    if (this._waitingForMouseUp && ev.target === dialogNode) {
+    const dialogNode = this.dialogRef.current;
+    if (this._waitingForMouseUp && dialogNode && ev.target === dialogNode) {
       this._ignoreBackdropClick = true;
     }
     this._waitingForMouseUp = false;
@@ -280,6 +285,7 @@ class Modal extends React.Component {
       >
         <Dialog
           {...dialogProps}
+          ref={this.dialogRef}
           style={{ ...this.state.style, ...style }}
           className={classNames(className, inClassName)}
           onClick={backdrop === true ? this.handleDialogClick : null}

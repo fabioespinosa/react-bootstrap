@@ -163,9 +163,9 @@ var Modal = /*#__PURE__*/function (_React$Component) {
     };
 
     _this.handleMouseUp = function (ev) {
-      var dialogNode = _this._modal.getDialogElement();
+      var dialogNode = _this.dialogRef.current;
 
-      if (_this._waitingForMouseUp && ev.target === dialogNode) {
+      if (_this._waitingForMouseUp && dialogNode && ev.target === dialogNode) {
         _this._ignoreBackdropClick = true;
       }
 
@@ -177,6 +177,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
     _this.handleWindowResize = _bindInstanceProperty(_context3 = _this.handleWindowResize).call(_context3, _assertThisInitialized(_this));
     _this.handleDialogClick = _bindInstanceProperty(_context4 = _this.handleDialogClick).call(_context4, _assertThisInitialized(_this));
     _this.setModalRef = _bindInstanceProperty(_context5 = _this.setModalRef).call(_context5, _assertThisInitialized(_this));
+    _this.dialogRef = /*#__PURE__*/React.createRef();
     _this.state = {
       style: {}
     };
@@ -231,7 +232,11 @@ var Modal = /*#__PURE__*/function (_React$Component) {
       return;
     }
 
-    var dialogNode = this._modal.getDialogElement();
+    var dialogNode = this.dialogRef.current;
+
+    if (!dialogNode) {
+      return;
+    }
 
     var dialogHeight = dialogNode.scrollHeight;
     var document = ownerDocument(dialogNode);
@@ -276,6 +281,7 @@ var Modal = /*#__PURE__*/function (_React$Component) {
       onExited: createChainedFunction(onExited, this.handleExited),
       onMouseUp: this.handleMouseUp
     }), /*#__PURE__*/React.createElement(Dialog, _extends({}, dialogProps, {
+      ref: this.dialogRef,
       style: _extends({}, this.state.style, style),
       className: classNames(className, inClassName),
       onClick: backdrop === true ? this.handleDialogClick : null,
