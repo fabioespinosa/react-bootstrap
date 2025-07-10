@@ -1,3 +1,15 @@
+## [3.3.5](https://github.com/react-bootstrap/react-bootstrap/compare/v3.3.3...v3.3.5) (2025-07-10)
+
+
+### Bug Fixes
+
+* package.json ([a93c419](https://github.com/react-bootstrap/react-bootstrap/commit/a93c419a346ddaecbf7463299e6283d216da3a2a))
+* versions ([2cf0525](https://github.com/react-bootstrap/react-bootstrap/commit/2cf05250a7e51b5cd2e940519ae3a73a0995a688))
+
+
+
+
+
 ## [3.3.3](https://github.com/react-bootstrap/react-bootstrap/compare/v3.2.2...v3.3.3) (2025-07-10)
 
 
